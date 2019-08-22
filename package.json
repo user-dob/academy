@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "logic": "npx ts-node src/logic.ts"
+    "logic": "npx ts-node src/logic/part_1"
   },
   "keywords": [],
   "author": "user-dob <user.dob@gmail.com>",
