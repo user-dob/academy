@@ -62,3 +62,10 @@ export const union = (...items: Array<Set<any>>): Set<any> => {
     return unionSet;
 }
 
+export const intersection = (...items: Array<Set<any>>): Set<any> => {
+    const all = union(...items);
+    const intersectionItems = Array.from(all).filter(item => items.every(set => set.has(item)));
+    return new Set(intersectionItems);
+}
+
+
