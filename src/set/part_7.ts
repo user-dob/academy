@@ -1,6 +1,6 @@
 import { isEqual, printSet, union } from './util';
 
-// A ∩ B = {x | x ∈ A и x ∈ B}
+// A ∩ B = {x | x ∈ A ∧ x ∈ B} (Пересечение)
 
 const intersection = (...items: Array<Set<any>>): Set<any> => {
     const all = union(...items);

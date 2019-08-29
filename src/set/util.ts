@@ -68,4 +68,44 @@ export const intersection = (...items: Array<Set<any>>): Set<any> => {
     return new Set(intersectionItems);
 }
 
+export const difference = (A: Set<any>, B: Set<any>): Set<any> => {
+    const differenceItems = Array.from(A).filter(item => !B.has(item));
+    return new Set(differenceItems);
+}
 
+export const product = (...items: Array<Set<any>>): Set<Array<any>> => {
+    const productItems = [];
+    const [head, ...tail] = items;
+    const productTail = tail.length === 1
+        ? Array.from(tail[0]).map(item => [item])
+        : Array.from(product(...tail));
+
+    head.forEach(item => {
+        productTail.forEach(productTailItem => {
+            productItems.push([
+                item,
+                ...productTailItem
+            ]);
+        })
+    });
+
+    return new Set(productItems);
+}
+
+export const printMapping = (A: Set<any>, B: Set<any>, f: (n: any) => any) => {
+    const set = new Set();
+
+    A.forEach(item => {
+        const value = f(item);
+        if (value) {
+            console.log(`${item} -> ${value}`);
+            set.add(value);
+        } else {
+            console.log(item);
+        }
+    });
+
+    difference(B, set).forEach(item => {
+        console.log(`     ${item}`);
+    })
+}

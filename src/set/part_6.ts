@@ -1,6 +1,6 @@
 import { printSet, isEqual } from './util';
 
-// A ∪ B = {x | x ∈ A или x ∈ B}
+// A ∪ B = {x | x ∈ A ∨ x ∈ B} (Объединение)
 
 const union = (...items: Array<Set<any>>): Set<any> => {
     const unionSet = new Set();
