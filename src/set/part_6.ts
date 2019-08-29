@@ -29,3 +29,11 @@ console.log('A ∪ ∅ = A',
         A
     )
 )
+
+console.log('A ∪ A = A',
+    isEqual(
+        union(A, A),
+        A
+    )
+)
+
